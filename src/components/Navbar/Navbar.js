@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import buscar from "./buscar.png";
 import "./navbar.css";
+import Cart from "../Cart/CartWidget.js"
 
 function Navbar() {
   return (
@@ -31,6 +32,9 @@ function Navbar() {
               <input type="search" placeholder="search..."></input>
               <img src={buscar} className="imgBuscar" />
             </div>
+          </li>
+          <li>
+            <Cart/>
           </li>
         </ul>
       </div>

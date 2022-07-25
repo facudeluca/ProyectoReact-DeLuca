@@ -1,8 +1,4 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+
 header{
     width: 100%;
     height: 150px;
@@ -48,6 +44,26 @@ gap: 3rem;
 }
 .lista ul li{
     list-style: none;
+}
+.lista .cartIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.lista .cartIcon img{
+    filter: invert(1) brightness(100);
+    width: 50px;
+    cursor: pointer;
+}
+.lista .cartIcon input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgb(97, 218, 251);
+    font-size: 1.2rem;
+    width: 1.5rem;
+    pointer-events: none;
 }
 .lista ul li a{
     text-decoration: none;
