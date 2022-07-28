@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/proyectoReact-DeLuca/static/css/main.eb40d2d4.css",
-    "main.js": "/proyectoReact-DeLuca/static/js/main.174899c0.js",
+    "main.css": "/proyectoReact-DeLuca/static/css/main.9d47eade.css",
+    "main.js": "/proyectoReact-DeLuca/static/js/main.fe721671.js",
     "static/js/787.46493d11.chunk.js": "/proyectoReact-DeLuca/static/js/787.46493d11.chunk.js",
     "static/media/item.jpg": "/proyectoReact-DeLuca/static/media/item.36d189e8ba9f01291a90.jpg",
     "static/media/buscar.png": "/proyectoReact-DeLuca/static/media/buscar.73b39d54b291b8d5f1dc.png",
     "static/media/logo.svg": "/proyectoReact-DeLuca/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/proyectoReact-DeLuca/index.html",
-    "main.eb40d2d4.css.map": "/proyectoReact-DeLuca/static/css/main.eb40d2d4.css.map",
-    "main.174899c0.js.map": "/proyectoReact-DeLuca/static/js/main.174899c0.js.map",
+    "main.9d47eade.css.map": "/proyectoReact-DeLuca/static/css/main.9d47eade.css.map",
+    "main.fe721671.js.map": "/proyectoReact-DeLuca/static/js/main.fe721671.js.map",
     "787.46493d11.chunk.js.map": "/proyectoReact-DeLuca/static/js/787.46493d11.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb40d2d4.css",
-    "static/js/main.174899c0.js"
+    "static/css/main.9d47eade.css",
+    "static/js/main.fe721671.js"
   ]
 }
