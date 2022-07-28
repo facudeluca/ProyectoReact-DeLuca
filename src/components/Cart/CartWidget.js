@@ -4,7 +4,7 @@ function Cart(){
     return (
         <div className="cartIcon">
             <img src={cartIco}/>
-            <input type="text" value="0"/>
+            <input type="text" value="0" readOnly/>
         </div>
     )
 }

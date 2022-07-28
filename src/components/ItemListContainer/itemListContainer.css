@@ -14,3 +14,6 @@
 .itemContainer img{
     width: 250px;
 }
+.itemContainer p{
+    margin-bottom: 1rem;
+}
