@@ -1,19 +1,54 @@
-.itemContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 80px;
-    width: 100%;
-    padding: 2rem 4rem;
+.contenedor__prod{
+    margin-top: 150px;
+    width: 70%;
 }
-.itemContainer .item{
-    width: 300px;
-    padding: 1rem;
+.lista__prod{
+    row-gap: 2rem;
+}
+.prod{
+    display: flex;
+    justify-content: center;
+}
+.prod .card{
+    margin: 0;
+    min-width: 286px;
+    cursor: pointer;
+}
+
+.card{
+    position: relative;
+    height: 370px;
+    overflow: hidden;
+    border: none;
     border-radius: 20px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.274);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
-.itemContainer img{
-    width: 250px;
+.card:hover .card-body{
+    transform: translateY(120px);
 }
-.itemContainer p{
-    margin-bottom: 1rem;
+.card-img-top{
+    position: relative;
+}
+.card-body{
+    position: absolute;
+    width: 100%;
+    transform: translateY(290px);
+    transition-property: transform;
+    transition: .5s ease-in-out;
+    background-color: white;
+}
+
+.item__numbers{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+.item__numbers .weight{
+    font-weight: lighter;
+}
+.item__numbers .price{
+    color: rgb(157, 197, 74);
+    font-weight: bold;
 }

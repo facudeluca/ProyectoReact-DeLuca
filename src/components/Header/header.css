@@ -1,0 +1,83 @@
+header{
+    display: flex;
+    width: 100%;
+}
+.header__navbar{
+    width: 100%;
+    justify-content: center;
+}
+.container{
+    margin: 0;
+    max-width: 100%;
+    padding: 0 3rem;
+    align-items: center;
+}
+.header__logo{
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+}
+.logoName{
+    font-size: 1.2rem;
+    color: rgb(157, 197, 74);
+    line-height: 1;
+}
+.logoName span{
+    margin-left: 1rem;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+.nav-link{
+    font-size: 1.2rem;
+}
+.nav-link:hover{
+    color: rgb(157, 197, 74);
+}
+.link__active{
+    font-weight: bold;
+    color: rgb(157, 197, 74);
+}
+.cartIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.icon__cartIcon{
+    color: rgb(157, 197, 74);
+    font-size: 2.5rem;
+}
+.cartIcon input{
+    outline: none;
+    border: none;
+    background-color: rgb(157, 197, 74);
+    color: white;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin-left: .5rem;
+    pointer-events: none;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bolder;
+}
+.search__input:focus{
+    box-shadow: none;
+    border: 2px solid rgb(157, 197, 74);
+}
+.search__button{
+    color: rgb(157, 197, 74);
+    border: 2px solid rgb(157, 197, 74);
+}
+.search__button:hover{
+    background-color: rgb(157, 197, 74);
+    color: white;
+    border: 2px solid rgb(157, 197, 74);
+}
+.search__button:focus{
+    box-shadow: none;
+    background-color: rgb(157, 197, 74);
+    color: white;
+    border: 2px solid rgb(157, 197, 74);
+}

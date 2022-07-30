@@ -1,9 +1,14 @@
-import cartIco from "./cart.png";
+import { useState } from 'react';
+import {AiOutlineShoppingCart} from 'react-icons/ai';
+
+
+
 
 function Cart(){
+
     return (
         <div className="cartIcon">
-            <img src={cartIco}/>
+            <AiOutlineShoppingCart className='icon__cartIcon'/>
             <input type="text" value="0" readOnly/>
         </div>
     )
