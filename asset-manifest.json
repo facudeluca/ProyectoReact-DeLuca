@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/proyectoReact-DeLuca/static/css/main.8a26ab56.css",
-    "main.js": "/proyectoReact-DeLuca/static/js/main.3da5ea44.js",
+    "main.css": "/proyectoReact-DeLuca/static/css/main.903c2466.css",
+    "main.js": "/proyectoReact-DeLuca/static/js/main.707184b5.js",
     "static/js/787.46493d11.chunk.js": "/proyectoReact-DeLuca/static/js/787.46493d11.chunk.js",
     "static/media/mixPimienta.jpeg": "/proyectoReact-DeLuca/static/media/mixPimienta.fbf29ed533001f289888.jpeg",
     "static/media/anisEnGrano.jpeg": "/proyectoReact-DeLuca/static/media/anisEnGrano.39ffe33b1bb638de6890.jpeg",
@@ -46,12 +46,12 @@
     "static/media/adoboPizza.jpeg": "/proyectoReact-DeLuca/static/media/adoboPizza.f2a8ea812724d2d424bc.jpeg",
     "static/media/condimentoTuco.jpeg": "/proyectoReact-DeLuca/static/media/condimentoTuco.f522507c8072e6e9b901.jpeg",
     "index.html": "/proyectoReact-DeLuca/index.html",
-    "main.8a26ab56.css.map": "/proyectoReact-DeLuca/static/css/main.8a26ab56.css.map",
-    "main.3da5ea44.js.map": "/proyectoReact-DeLuca/static/js/main.3da5ea44.js.map",
+    "main.903c2466.css.map": "/proyectoReact-DeLuca/static/css/main.903c2466.css.map",
+    "main.707184b5.js.map": "/proyectoReact-DeLuca/static/js/main.707184b5.js.map",
     "787.46493d11.chunk.js.map": "/proyectoReact-DeLuca/static/js/787.46493d11.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a26ab56.css",
-    "static/js/main.3da5ea44.js"
+    "static/css/main.903c2466.css",
+    "static/js/main.707184b5.js"
   ]
 }
