@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
-
 
 
 
@@ -13,5 +11,5 @@ function Cart(){
         </div>
     )
 }
-
+ 
 export default Cart

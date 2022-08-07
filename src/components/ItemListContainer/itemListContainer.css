@@ -52,3 +52,16 @@
     color: rgb(157, 197, 74);
     font-weight: bold;
 }
+
+.title__card{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.title__card button{
+    width: 1rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgb(157, 197, 74);
+}

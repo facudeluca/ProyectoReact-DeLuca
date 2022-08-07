@@ -2,7 +2,7 @@ import "./itemListContainer.css";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList.js";
-import getFetch from "../Data/Data.js";
+import {getFetch, getItem} from "../Data/Data.js";
 
 function ItemListContainer() {
 
@@ -13,6 +13,7 @@ useEffect(()=>{
     .then((resp)=>setData(resp))
     .catch(err=>console.log(err))
 },[]);
+
 
   return (
     <Container className="contenedor__prod">

@@ -3,7 +3,7 @@ import { useState, useEffect} from "react";
 import Modal from "react-bootstrap/Modal";
 import logo from "../../assets/img/logo.png"
 
-function ItemCounter({ prod }) {
+function ItemCounter({prod}) {
   const [contador, setContador] = useState(0);
   const [stock, setStock] = useState(prod.stock);
   const [smShow, setSmShow] = useState(false);
@@ -22,6 +22,7 @@ function ItemCounter({ prod }) {
     }
   }
   function addToCart() {
+
     if (contador >= 1) {
       setStock(stock - contador);
       setStock(stock);
@@ -37,9 +38,6 @@ function ItemCounter({ prod }) {
 
   return (
     <div className="itemCounter">
-      <label htmlFor="itemAddCounter" id="stockCounterLabel">
-        stock: {stock}
-      </label>
       <div className="itemCounterBtn">
         <input
           type="button"
