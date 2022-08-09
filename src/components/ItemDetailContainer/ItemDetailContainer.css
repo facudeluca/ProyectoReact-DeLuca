@@ -36,6 +36,10 @@ hr{
 .itemCounter{
 margin-bottom: 2rem;
 }
+.accordion{
+    height: 200px;
+    width: 100%;
+}
 .accordion-button:focus {
     z-index: 3;
     border-color: transparent;
@@ -46,4 +50,46 @@ margin-bottom: 2rem;
     color: white;
     font-weight: bold;
     background-color: rgb(157, 197, 74);
+}
+@media screen and (max-width: 1650px){
+    .itemDetail{
+        width: 100%;
+        padding: 4rem;
+    }
+}
+@media screen and (max-width: 1200px){
+    .itemDetail{
+        width: 100%;
+        padding: 2rem;
+        align-items: center;
+    }
+    .itemDetail img{
+        width: 500px;
+    }
+    .item__info{
+        width: 450px;
+    }
+}
+@media screen and (max-width:991px) {
+    .itemDetail{
+        grid-template-columns: 100%;
+        grid-template-rows: 40% 1fr;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+    }
+}
+@media screen and (max-width:700px){
+    .itemDetail{
+        grid-template-rows: 30% 1fr;
+    }
+    .itemDetail img{
+        width: 350px;
+    }
+    .item__info{
+        width: 350px;
+    }
+    .item__info .accordion{
+        height: 300px;
+    }
 }
