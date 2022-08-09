@@ -8,7 +8,7 @@ function ItemList({ data }) {
     <Row className="lista__prod">
     {
     data.map((prod)=> (
-        <Item key={prod.id} prod={prod}/>
+        <Item key={prod.id} {...prod}/>
     ))
     }
   </Row>

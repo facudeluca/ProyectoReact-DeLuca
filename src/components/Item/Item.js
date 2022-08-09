@@ -2,25 +2,29 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ItemCounter from '../ItemCount';
 import Col from "react-bootstrap/Col";
-import {AiFillInfoCircle} from "react-icons/ai"
+import {AiFillInfoCircle} from "react-icons/ai";
+import {Link} from "react-router-dom"
 
-function Item({prod}) {
+function Item({name, img, weight, price, stock}) {
 
 
-const cargarImagen = require.context("../../assets/img/", true);
 
   return (
     <>
     <Col className="prod">
         <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={cargarImagen(`./${prod.img}`)} alt={prod.name} height="286px"/>
+      <Card.Img variant="top" src={img} alt={name} height="286px"/>
       <Card.Body>
-        <Card.Title className='title__card'>{prod.name} <button><AiFillInfoCircle/></button></Card.Title>
+        <Card.Title className='title__card'>{name} 
+        <Link to={`/detail/${name}`}>
+        <button><AiFillInfoCircle/></button>
+        </Link>
+        </Card.Title>
         <div className='item__numbers'>
-        <div className='weight'>{prod.weight}</div>
-          <div className='price'>{prod.price}</div>
+        <div className='weight'>{weight}</div>
+          <div className='price'>{price}</div>
         </div>
-        <ItemCounter prod={prod}/>
+        <ItemCounter stock={stock}/>
       </Card.Body>
     </Card>
     </Col>

@@ -1,21 +1,25 @@
 import { useState, useEffect } from "react";
-import {getFetch, getItem} from "../Data/Data.js";
-import ItemDetail from "../ItemDetail/ItemDetail.js";
+import {getProductById} from "../Data/Data.js";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import {useParams} from "react-router-dom";
+import "./ItemDetailContainer.css";
 
 function ItemDetailContainer(){
-
-    const [dataItem, setDataItem] = useState([]);
+    const [data, setData] = useState();
+    const {prodId} = useParams();
     
     useEffect(()=>{
-        getItem
-        .then((resp)=>setDataItem(resp))
+        getProductById(prodId)
+        .then((res)=>setData(res))
         .catch(err=>console.log(err))
 
 
-    });
+    }, [prodId]);
 
     return(
-        <ItemDetail dataItem={dataItem}/>
+        <div className="detailContainer">
+        <ItemDetail {...data}/>
+        </div>
     )
 
 
