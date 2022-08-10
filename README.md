@@ -1,3 +1,6 @@
+Éste proyecto se trata de un E-commerce para un emprendimiento familiar llamado "Distribuidora Galicia".
+A parte de lo visto en clase use la dependencia extra de "React-icons" instalada por npm.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
