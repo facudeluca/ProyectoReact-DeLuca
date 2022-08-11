@@ -14,7 +14,10 @@
     min-width: 286px;
     cursor: pointer;
 }
-
+.prod a{
+    color: black;
+    transition: color .5s ease-in-out;
+}
 .card{
     position: relative;
     height: 370px;
@@ -22,9 +25,15 @@
     border: none;
     border-radius: 20px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
 }
-.card:hover .card-body{
-    transform: translateY(120px);
+.card:hover #prodName{
+    color: rgb(157, 197, 74);
+    transition: color .5s ease-in-out;
+}
+.card:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 .card-img-top{
     position: relative;
@@ -64,4 +73,33 @@
     border: none;
     outline: none;
     color: rgb(157, 197, 74);
+}
+.bntAddedContainer{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 2rem 0;
+}
+.btnAdded{
+    background-color: rgb(157, 197, 74);
+    border: none;
+    outline: none;
+    color: white;
+    border: 2px solid rgb(157, 197, 74);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    transition: .5s ease-in-out;
+}
+.btnAdded:hover{
+    background-color: white;
+    color: rgb(157, 197, 74);
+    border: 2px solid rgb(157, 197, 74);
+}
+
+@media screen and (max-width:700px) {
+    .btnAdded{
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
 }

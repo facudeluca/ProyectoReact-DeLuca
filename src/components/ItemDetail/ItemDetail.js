@@ -1,14 +1,32 @@
-import React from 'react';
-import "./itemDetail.css";
+import React, { useState } from 'react';
 import ItemCounter from "../ItemCount";
 import Accordion from 'react-bootstrap/Accordion';
+import { Link } from 'react-router-dom';
+import {RiArrowGoBackFill} from "react-icons/ri";
+import Modal from 'react-bootstrap/Modal';
+
 
 
 function ItemDetail({name, img, brand, weight, stock, info, price}) {
   
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [smShow, setSmShow] = useState(false);
+
+  const onAddItems = () =>{
+    setAddedToCart(true);
+  }
+ const showModal=()=>{
+  setSmShow(true)
+  setTimeout(()=>{
+    setSmShow(false)
+  },2000)
+ }
 
   return (
     <div className='itemDetail'>
+      <Link to="/" id='backButton'>
+        <RiArrowGoBackFill/>
+      </Link>
       <img src={img}/>
       <div className="item__info">
         <h1>{name}</h1>
@@ -22,7 +40,14 @@ function ItemDetail({name, img, brand, weight, stock, info, price}) {
         <h6>En stock: {stock} unidades</h6>
       </div>
       <hr/>
-      <ItemCounter stock={stock} className="counter"/>
+      {addedToCart ? 
+      <div className='bntAddedContainer'>
+      <Link to="/cart"><button className='btnAdded'>Ir al carrito</button></Link>
+      <Link to="/cart"><button className='btnAdded'>Finalizar compra</button></Link>
+      </div>
+      : (
+      <ItemCounter stock={stock} className="counter" onAddToCart={onAddItems} onAddShowModal={showModal} />
+      )}
       <Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="0">
         <Accordion.Header>Descripción</Accordion.Header>
@@ -32,6 +57,14 @@ function ItemDetail({name, img, brand, weight, stock, info, price}) {
       </Accordion.Item>
       </Accordion>
       </div>
+      <Modal
+        size="m"
+        show={smShow}
+        onHide={() => setSmShow(false)}
+        aria-labelledby="example-modal-sizes-title-sm"
+      >
+        <Modal.Body>Has agregado <span>{name}</span> a tu carrito</Modal.Body>
+      </Modal>
     </div>
   )
 }

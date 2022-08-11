@@ -81,3 +81,18 @@ header{
     color: white;
     border: 2px solid rgb(157, 197, 74);
 }
+@media screen and (max-width:400px) {
+    .header__logo{
+        margin-right: 1rem;
+    }
+    .header__logo img{
+        width: 60px;
+    }
+    .header__logo .logoName{
+        font-size: 1rem;
+    }    
+    .header__logo .logoName span{
+        font-size: 1.8rem;
+        margin-left: .2rem;
+    }
+}

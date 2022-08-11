@@ -1,12 +1,10 @@
 import "./ItemCount.css";
 import { useState, useEffect } from "react";
-import Modal from "react-bootstrap/Modal";
-import logo from "../../logo.png";
 
-function ItemCounter({ stock }) {
+function ItemCounter({ stock, onAddToCart, onAddShowModal }) {
   const [contador, setContador] = useState(0);
   const [cantStock, setCantStock] = useState(stock);
-  const [smShow, setSmShow] = useState(false);
+
 
   useEffect(()=>{
     setCantStock(stock)
@@ -28,13 +26,10 @@ function ItemCounter({ stock }) {
     if (contador >= 1) {
       setCantStock(cantStock - contador);
       setCantStock(cantStock);
-      setSmShow(true);
+      onAddToCart();
+      onAddShowModal();
     }
   }
-
-  useEffect(() => {
-    if (smShow === false) setContador(0);
-  }, [smShow]);
 
   return (
     <div className="itemCounter">
@@ -70,26 +65,6 @@ function ItemCounter({ stock }) {
           onClick={addToCart}
         />
       </div>
-
-      <Modal
-        size="m"
-        show={smShow}
-        onHide={() => setSmShow(false)}
-        aria-labelledby="example-modal-sizes-title-sm"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title
-            id="example-modal-sizes-title-sm"
-            className="title__modal"
-          >
-            <img src={logo} alt="logo Distribuidora Galicia" width="40px" />{" "}
-            <h2>DISTRIBUIDORA GALICIA</h2>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="mesage__modal">
-          Has agregado {contador} productos al carrito
-        </Modal.Body>
-      </Modal>
     </div>
   );
 }

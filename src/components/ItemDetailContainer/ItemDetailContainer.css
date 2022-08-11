@@ -12,6 +12,7 @@ margin-top: 100px;
     grid-template-columns: 50% 50%;
     gap: 2rem;
     padding: 3rem;
+    position: relative;
 }
 .itemDetail img{
     width: 600px;
@@ -51,6 +52,42 @@ margin-bottom: 2rem;
     font-weight: bold;
     background-color: rgb(157, 197, 74);
 }
+
+#backButton{
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+    color: rgb(157, 197, 74);
+}
+#backButton svg{
+    background-color: rgba(211, 211, 211, 0.3);
+    border-radius: 50%;
+    font-size: 4rem;
+    padding: 1rem;
+}
+
+.modal-backdrop{
+display: none;
+}
+.modal{
+    pointer-events: none;
+}
+.modal-dialog{
+    margin-right: 2rem;
+    top: 1rem;
+    width: 100%;
+}
+.modal-dialog .modal-content{
+    right: 0;
+    border: 2px solid rgb(157, 197, 74);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+.modal-dialog .modal-content span{
+    color: rgb(157, 197, 74);
+    font-weight: bold;
+}
+
 @media screen and (max-width: 1650px){
     .itemDetail{
         width: 100%;
@@ -78,6 +115,9 @@ margin-bottom: 2rem;
         justify-items: center;
         width: 100%;
     }
+    .modal-dialog{
+        margin:1rem auto
+    }    
 }
 @media screen and (max-width:700px){
     .itemDetail{
@@ -91,5 +131,23 @@ margin-bottom: 2rem;
     }
     .item__info .accordion{
         height: 300px;
+    }
+    #backButton{
+        position: absolute;
+        right: 1.5rem;
+        top: 2rem;
+        color: rgb(157, 197, 74);
+    }
+    #backButton svg{
+        background-color: rgba(211, 211, 211, 0.5);
+        border-radius: 50%;
+        font-size: 3rem;
+        padding: .5rem;
+    }
+    .modal-dialog{
+        width: 340px;
+    }
+    .modal-dialog .modal-content{
+        font-size: .8rem;
     }
 }
