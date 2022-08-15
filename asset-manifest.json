@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/proyectoReact-DeLuca/static/css/main.81a3583d.css",
-    "main.js": "/proyectoReact-DeLuca/static/js/main.2f1db08f.js",
+    "main.css": "/proyectoReact-DeLuca/static/css/main.a27c120b.css",
+    "main.js": "/proyectoReact-DeLuca/static/js/main.e425c8b3.js",
     "static/js/787.46493d11.chunk.js": "/proyectoReact-DeLuca/static/js/787.46493d11.chunk.js",
     "static/media/logo.png": "/proyectoReact-DeLuca/static/media/logo.fedfd0210ee6f5e45d51.png",
     "index.html": "/proyectoReact-DeLuca/index.html",
-    "main.81a3583d.css.map": "/proyectoReact-DeLuca/static/css/main.81a3583d.css.map",
-    "main.2f1db08f.js.map": "/proyectoReact-DeLuca/static/js/main.2f1db08f.js.map",
+    "main.a27c120b.css.map": "/proyectoReact-DeLuca/static/css/main.a27c120b.css.map",
+    "main.e425c8b3.js.map": "/proyectoReact-DeLuca/static/js/main.e425c8b3.js.map",
     "787.46493d11.chunk.js.map": "/proyectoReact-DeLuca/static/js/787.46493d11.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.81a3583d.css",
-    "static/js/main.2f1db08f.js"
+    "static/css/main.a27c120b.css",
+    "static/js/main.e425c8b3.js"
   ]
 }
