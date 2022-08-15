@@ -70,7 +70,7 @@ const Cart = () => {
             <Button as={Link} to="/" className="continue">
               Ir de compras
             </Button>
-            <div>
+            <div className="clearFinBtn">
               <Button className="clearCart" onClick={removeAll} disabled>
                 vaciar carrito
               </Button>

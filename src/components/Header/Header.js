@@ -13,15 +13,13 @@ import {Link} from "react-router-dom";
 
 function Header() {
 
-
-
   return (
     <Navbar bg="light" expand="lg" className="header__navbar" fixed="top">
       <Container>
         <Navbar.Brand as={Link} to="/" className="header__logo"><img src={logo} width="80px"/><div className="logoName">DISTRIBUIDORA <br/><span>GALICIA</span></div></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+        <Navbar.Collapse id="basic-navbar-nav"  >
+          <Nav className="me-auto" >
             <Nav.Link as={Link} to="/" className="link__active">Home</Nav.Link>
             <Nav.Link as={Link} to="/">Contacto</Nav.Link>
             <NavDropdown title="Productos" id="basic-nav-dropdown">

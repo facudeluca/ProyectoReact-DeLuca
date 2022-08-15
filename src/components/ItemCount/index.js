@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 function ItemCounter({ stock, onAddToCart, onAddShowModal, itemData }) {
-  const [contador, setContador] = useState(0);
+  const [contador, setContador] = useState(1);
   const [cantStock, setCantStock] = useState(stock);
   const {addProduct} = useContext(CartContext);
   const itemDataCount= {
@@ -17,7 +17,7 @@ function ItemCounter({ stock, onAddToCart, onAddShowModal, itemData }) {
   },[stock])
 
   function agregarItem() {
-    if (cantStock >= 1) {
+    if (cantStock > 1) {
       setContador(contador + 1);
       setCantStock(cantStock - 1);
     }
