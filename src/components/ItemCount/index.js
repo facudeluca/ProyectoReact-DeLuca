@@ -1,9 +1,15 @@
 import "./ItemCount.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-function ItemCounter({ stock, onAddToCart, onAddShowModal }) {
+function ItemCounter({ stock, onAddToCart, onAddShowModal, itemData }) {
   const [contador, setContador] = useState(0);
   const [cantStock, setCantStock] = useState(stock);
+  const {addProduct} = useContext(CartContext);
+  const itemDataCount= {
+    ...itemData,
+    contador
+  }
 
 
   useEffect(()=>{
@@ -60,9 +66,12 @@ function ItemCounter({ stock, onAddToCart, onAddShowModal }) {
       <div className="addItem">
         <input
           type="button"
-          value="Add to Cart"
+          value="Agregar al carrito"
           id="addItemBtn"
-          onClick={addToCart}
+          onClick={()=>{
+            addToCart();
+            addProduct({...itemDataCount})
+          }}
         />
       </div>
     </div>

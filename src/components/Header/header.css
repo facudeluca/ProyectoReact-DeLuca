@@ -62,6 +62,7 @@ header{
     text-align: center;
     font-weight: bolder;
 }
+
 .search__input:focus{
     box-shadow: none;
     border: 2px solid rgb(157, 197, 74);

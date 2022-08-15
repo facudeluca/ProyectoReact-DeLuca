@@ -1,6 +1,6 @@
 import "./header.css";
 import logo from "../../logo.png";
-import Cart from "../Cart/CartWidget.js";
+import CartWidget from "../Cart/CartWidget.js";
 import {FaSearch} from "react-icons/fa"
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -41,7 +41,7 @@ function Header() {
               aria-label="Search"
             />
             <Button variant="outline-success" className="search__button"><FaSearch/></Button>
-            <Cart/>
+            <CartWidget/>
           </Form>
         </Navbar.Collapse>
       </Container>

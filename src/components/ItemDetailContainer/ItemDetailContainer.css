@@ -150,4 +150,7 @@ display: none;
     .modal-dialog .modal-content{
         font-size: .8rem;
     }
+    .btnAdded{
+        padding: .8rem 1.5rem;
+    }
 }

@@ -1,13 +1,18 @@
+import React, {useContext} from "react"
 import {AiOutlineShoppingCart} from 'react-icons/ai';
-
-
+import { Link } from 'react-router-dom';
+import { CartContext } from "../../context/CartContext";
 
 function Cart(){
+    const { cantInCart } = useContext(CartContext)
 
     return (
+        
         <div className="cartIcon">
+            <Link to="/cart">
             <AiOutlineShoppingCart className='icon__cartIcon'/>
-            <input type="text" value="0" readOnly/>
+            </Link>
+            <input type="text" value={cantInCart} readOnly/>
         </div>
     )
 }

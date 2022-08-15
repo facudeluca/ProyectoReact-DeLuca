@@ -17,7 +17,7 @@ function Item({name, img, weight, price}) {
         </Card.Title>
         <div className='item__numbers'>
         <div className='weight'>{weight}</div>
-          <div className='price'>{price}</div>
+          <div className='price'>{`$ ${price}`}</div>
         </div>
       </Card.Body>
     </Card>
