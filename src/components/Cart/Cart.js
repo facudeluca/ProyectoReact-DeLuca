@@ -30,6 +30,9 @@ const Cart = () => {
           {cart == "" ? (
             <div className="vacio">
               <p>¡El carrito está vacío!</p>
+              <Button as={Link} to="/" className="continue">
+              Ir de compras
+              </Button>
             </div>
           ) : (
             <>
@@ -64,22 +67,7 @@ const Cart = () => {
       </Container>
       <hr />
       {cart == "" ? (
-        <div className="cartBottom">
-          <div className="total"></div>
-          <div className="cartButtons">
-            <Button as={Link} to="/" className="continue">
-              Ir de compras
-            </Button>
-            <div className="clearFinBtn">
-              <Button className="clearCart" onClick={removeAll} disabled>
-                vaciar carrito
-              </Button>
-              <Button className="finalizar " disabled>
-                FINALIZAR COMPRA
-              </Button>
-            </div>
-          </div>
-        </div>
+        <></>
       ) : (
         <div className="cartBottom">
         <div className="total">TOTAL: ${totalPrice}</div>
