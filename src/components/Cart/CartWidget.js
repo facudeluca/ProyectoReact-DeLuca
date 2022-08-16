@@ -5,14 +5,16 @@ import { CartContext } from "../../context/CartContext";
 
 function Cart(){
     const { cantInCart } = useContext(CartContext)
-
+    
+ 
     return (
         
         <div className="cartIcon">
             <Link to="/cart">
             <AiOutlineShoppingCart className='icon__cartIcon'/>
             </Link>
-            <input type="text" value={cantInCart} readOnly/>
+            {cantInCart!=0 ? <input type="text" value={cantInCart} readOnly/> : ""}
+            
         </div>
     )
 }
