@@ -34,7 +34,7 @@ const CartContextProvider = ({ children }) => {
   };
   const removeFromCart = (id) => {
     setCart(cart.filter((product) => product.id !== id));
-    const itemRemoved = cart.find(product => product.id==id);
+    const itemRemoved = cart.find(product => product.id===id);
     setCantInCart(cantInCart - itemRemoved.contador) ;
     setTotalPrice(totalPrice - itemRemoved.contador*itemRemoved.price);
   };

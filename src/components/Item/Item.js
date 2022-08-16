@@ -3,15 +3,15 @@ import Card from 'react-bootstrap/Card';
 import Col from "react-bootstrap/Col";
 import {Link} from "react-router-dom"
 
-function Item({name, img, weight, price}) {
+function Item({name, img, weight, price, grid}) {
 
 
   return (
     <>
     <Col className="prod">
     <Link to={`/detail/${name}`}>
-        <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={img} alt={name} height="286px"/>
+        <Card className={`${grid==="miniGrid" ? 'card__mini' : ''}`}>
+      <Card.Img variant="top" className={`${grid==="miniGrid" ? 'img__mini' : ''}`} src={img} alt={name}/>
       <Card.Body>
         <Card.Title className='title__card' id='prodName'>{name} 
         </Card.Title>

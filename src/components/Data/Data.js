@@ -395,7 +395,7 @@ export const getFetch = new Promise((res,rej)=>{
     if(condition){
         setTimeout(()=>{
             res(Data)
-        },2000)
+        },500)
     }else{
         rej(console.log("no hay datos"))
     }

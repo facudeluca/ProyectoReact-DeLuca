@@ -10,6 +10,8 @@ function ItemListContainer() {
 const [data, setData] = useState([]);
 const {categoryId} = useParams()
 
+
+
 useEffect(()=>{
 
   
@@ -27,7 +29,7 @@ useEffect(()=>{
 
   return (
     <Container className="contenedor__prod">
-        <ItemList data={data}/>
+        <ItemList data={data} category={categoryId}/>
     </Container>
   );
 }

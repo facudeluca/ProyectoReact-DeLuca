@@ -1,32 +1,106 @@
 .contenedor__prod{
     margin-top: 150px;
-    width: 70%;
+    width: 80%;
+}
+.filter__prod{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.filter__prod .breadcrumb__prod a{
+text-decoration: none;
+color: rgb(157, 197, 74);
+margin: 0;
+font-size: 1.2rem;
+}
+.filter__prod .breadcrumb__prod span{
+    color: gray;
+    pointer-events: none;
 }
 .lista__prod{
     row-gap: 2rem;
+}
+.order__prod{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.order__prod .viewRow__prod ul{
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+.order__prod .viewRow__prod ul li{
+    list-style: none;
+}
+.order__prod .viewRow__prod ul li button{
+    background-color: transparent;
+    border: none;
+}
+.order__prod .viewRow__prod ul li button svg{
+    fill: rgb(157, 197, 74);
+    font-size: 1.5rem;
+    transition: fill .5s ease-in-out;
+    pointer-events: none;
+} 
+.order__prod .viewRow__prod ul li button svg:hover{
+    fill: rgb(108, 136, 51);
+}
+.order__prod select{
+    cursor: pointer;
+    border: 1px solid rgb(157, 197, 74);
+}
+.order__prod select:focus{
+    border: 1px solid rgb(157, 197, 74);
+    box-shadow: 0px 0px 5px rgb(157, 197, 74);
 }
 .prod{
     display: flex;
     justify-content: center;
 }
-.prod .card{
-    margin: 0;
-    min-width: 286px;
-    cursor: pointer;
-}
+
 .prod a{
     color: black;
     transition: color .5s ease-in-out;
+    text-decoration: none;
 }
 .card{
-    position: relative;
-    height: 370px;
+    margin: 0;
+    width: 350px;
+    cursor: pointer;
+    height: 400px;
     overflow: hidden;
     border: none;
     border-radius: 20px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+.card__normal{
+    width: 350px;
+    height: 400px;
+}
+.card__mini{
+    width: 210px;
+    height: 280px;
+}
+.card .img__mini{
+    width: 150px;
+}
+.card .img__normal{
+    width: 300px;
+}
+.card img{
+    width: 300px;
+    margin-top: 1rem;
+}
+
 .card:hover #prodName{
     color: rgb(157, 197, 74);
     transition: color .5s ease-in-out;
@@ -35,16 +109,13 @@
     transform: scale(1.02);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
-.card-img-top{
-    position: relative;
-}
 .card-body{
-    position: absolute;
     width: 100%;
-    transform: translateY(290px);
     transition-property: transform;
     transition: .5s ease-in-out;
     background-color: white;
+    flex: none;
+    padding-bottom: .5rem;
 }
 
 .item__numbers{
@@ -97,9 +168,38 @@
     border: 2px solid rgb(157, 197, 74);
 }
 
+@media screen and (max-width:991px) {
+    .order__prod .viewRow__prod{
+        display: none;
+    }
+}
 @media screen and (max-width:700px) {
+    .contenedor__prod{
+        width: 90%;
+    }
     .btnAdded{
         font-size: 1rem;
         padding: 1rem 2rem;
     }
+    .order__prod .form-select{
+        width: 150px;
+        font-size: .8rem;
+    }
+    .order__prod .form-select option{
+        padding: 0;
+        text-align: center;
+    }
+    .card{
+        width: 280px;
+        height: 380px;
+    }
+    .card img{
+        width: 250px !important;
+    }
+}
+@media screen and (max-width:450px){
+.contenedor__prod{
+    width: 100%;
+    padding: 0 1rem;
+}
 }
