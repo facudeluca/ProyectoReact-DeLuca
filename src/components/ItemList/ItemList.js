@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
-import { FaBars, FaChevronCircleDown } from "react-icons/fa";
 import { BsFillGridFill } from "react-icons/bs";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import Form from "react-bootstrap/Form";

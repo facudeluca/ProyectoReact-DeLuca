@@ -3,13 +3,13 @@ import Card from 'react-bootstrap/Card';
 import Col from "react-bootstrap/Col";
 import {Link} from "react-router-dom"
 
-function Item({name, img, weight, price, grid}) {
+function Item({name, img, weight, price, grid, id}) {
 
 
   return (
     <>
     <Col className="prod">
-    <Link to={`/detail/${name}`}>
+    <Link to={`/detail/${id}`}>
         <Card className={`${grid==="miniGrid" ? 'card__mini' : ''}`}>
       <Card.Img variant="top" className={`${grid==="miniGrid" ? 'img__mini' : ''}`} src={img} alt={name}/>
       <Card.Body>
