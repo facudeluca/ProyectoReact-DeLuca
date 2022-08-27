@@ -61,12 +61,35 @@ font-size: 1.2rem;
 .prod{
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .prod a{
     color: black;
     transition: color .5s ease-in-out;
     text-decoration: none;
+}
+.noStock{
+    position: absolute;
+    right: 20%;
+    top: 2rem;
+    background-color: rgb(157, 197, 74);
+    z-index: 100;
+    color: white;
+    font-weight: bold;
+    width: 120px;
+    text-align: center;
+}
+.noStock__mini{
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    background-color: rgb(157, 197, 74);
+    z-index: 100;
+    color: white;
+    font-weight: bold;
+    width: 120px;
+    text-align: center;
 }
 .card{
     margin: 0;

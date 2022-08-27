@@ -1,5 +1,5 @@
 import "./App.css";
-import {React} from 'react'
+import { React } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/Header";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
@@ -23,7 +23,7 @@ function App() {
             />
             <Route path="/detail/:prodId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout/>}/>
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </CartContextProvider>
       </BrowserRouter>

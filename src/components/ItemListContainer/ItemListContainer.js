@@ -12,28 +12,34 @@ function ItemListContainer() {
   const { categoryId } = useParams();
   const [loading, setLoading] = useState(false);
 
+  
   useEffect(() => {
     const colRef = collection(DB, "ProductList");
 
     if (categoryId) {
       const colFilterRef = query(colRef, where("cat", "==", categoryId));
       getDocs(colRef)
-        .then(
-          (res) =>{
-            setData(res.docs.map((prod) => ({ id: prod.id, ...prod.data() })));
-            setLoading(false)
-        }).finally(setLoading(true));
-      getDocs(colFilterRef).then((res) =>{
-        setData(res.docs.map((prod) => ({ id: prod.id, ...prod.data() })));
-        setLoading(false)
-      }).finally(setLoading(true));
+        .then((res) => {
+          setData(res.docs.map((prod) => ({ id: prod.id, ...prod.data() })));
+          setLoading(false);
+        })
+        .finally(setLoading(true));
+      getDocs(colFilterRef)
+        .then((res) => {
+          setData(res.docs.map((prod) => ({ id: prod.id, ...prod.data() })));
+          setLoading(false);
+        })
+        .finally(setLoading(true));
     } else {
-      getDocs(colRef).then((res) =>{
-        setData(res.docs.map((prod) => ({ id: prod.id, ...prod.data() })));
-        setLoading(false)
-      }).finally(setLoading(true));
+      getDocs(colRef)
+        .then((res) => {
+          setData(res.docs.map((prod) => ({ id: prod.id, ...prod.data() })));
+          setLoading(false);
+        })
+        .finally(setLoading(true));
     }
   }, [categoryId]);
+
 
   return (
     <Container className="contenedor__prod">

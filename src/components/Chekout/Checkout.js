@@ -1,51 +1,59 @@
 import React, { useContext, useEffect, useState } from "react";
-import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  increment,
+  serverTimestamp,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { DB } from "../../Data/DataFirebase.js";
 import { CartContext } from "../../context/CartContext.js";
 import logo from "../../logo.png";
 import { GiHandTruck } from "react-icons/gi";
 import { FaTruck } from "react-icons/fa";
 import "./checkout.css";
-import Modal from 'react-bootstrap/Modal';
+import Modal from "react-bootstrap/Modal";
 import { PulseLoader } from "react-spinners";
-import {FiCheckSquare} from "react-icons/fi"
+import { FiCheckSquare } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 function Checkout() {
+
   const { cart, removeAll, totalPrice } = useContext(CartContext);
-
   const [envio, setEnvio] = useState(0);
-  const [motoActive, setMotoActive]=useState(false)
-  const [correoActive, setCorreoActive]=useState(false)
-  const [disabled, setDisabled]=useState(true)
-  const [buyerName, setBuyerName]=useState('')
-  const [buyerPhone, setBuyerPhone]=useState('')
-  const [buyerEmail, setBuyerEmail]=useState('')
-  const [loading, setLoading]=useState(false)
+  const [motoActive, setMotoActive] = useState(false);
+  const [correoActive, setCorreoActive] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [buyerName, setBuyerName] = useState("");
+  const [buyerPhone, setBuyerPhone] = useState("");
+  const [buyerEmail, setBuyerEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
-  const [Id, setId]=useState('')
-
+  const [Id, setId] = useState("");
   const handleClose = () => setShow(false);
 
-  function selectMoto(){
-    setEnvio(1000)
-    setMotoActive(true)
-    setCorreoActive(false)
+
+  //>>>>>>>>> CAMBIO MÉTODO DE ENVÍO <<<<<<<
+
+  function selectMoto() {
+    setEnvio(1000);
+    setMotoActive(true);
+    setCorreoActive(false);
   }
-  function selectCorreo(){
-    setEnvio(600)
-    setCorreoActive(true)
-    setMotoActive(false)
+  function selectCorreo() {
+    setEnvio(600);
+    setCorreoActive(true);
+    setMotoActive(false);
   }
-  
+
+  //>>>>>>>>> CREACIÓN DE ORDEN <<<<<<<
 
   useEffect(() => {
-    if((buyerName!=''),(buyerEmail!=''),(buyerPhone!='')&&(envio>0)){
-      setDisabled(false)
+    if ((buyerName !== "", buyerEmail !== "", buyerPhone !== "" && envio > 0)) {
+      setDisabled(false);
     }
-  }, [envio, buyerName, buyerPhone, buyerEmail])
-  
-  
+  }, [envio, buyerName, buyerPhone, buyerEmail]);
 
   const itemsBuyed = cart.map((item) => ({
     id: item.id,
@@ -60,9 +68,9 @@ function Checkout() {
       email: buyerEmail,
     },
     items: itemsBuyed,
-    totalProductos:totalPrice,
-    fecha:serverTimestamp(),
-    envio:envio,
+    totalProductos: totalPrice,
+    fecha: serverTimestamp(),
+    envio: envio,
     total: totalPrice + envio,
   };
 
@@ -75,28 +83,30 @@ function Checkout() {
 
     orderInFirestore()
       .then((res) => {
-        setLoading(false)
-        cart.forEach(async (item)=>{
-          const itemRef = doc(DB, 'ProductList', item.id)
-          await updateDoc(itemRef,{
-            stock: increment(-item.contador)
-          })
-        })
-        removeAll()
-        setId(res.id)
+        setLoading(false);
+        cart.forEach(async (item) => {
+          const itemRef = doc(DB, "ProductList", item.id);
+          await updateDoc(itemRef, {
+            stock: increment(-item.contador),
+          });
+        });
+        removeAll();
+        setId(res.id);
       })
       .catch((err) => console.log(err))
       .finally(setLoading(true));
   };
 
-  const handleClick=()=>{
-    createOrder()
-    setShow(true)
-  }
+  const handleClick = () => {
+    createOrder();
+    setShow(true);
+  };
 
-  const back=()=>{
-    setShow(false)
-  }
+  const back = () => {
+    setShow(false);
+  };
+
+  
   return (
     <div className="checkout">
       <div className="checkoutContainer">
@@ -122,7 +132,11 @@ function Checkout() {
             </div>
             <div className="envios">
               <h2>Método de envío</h2>
-              <div className={motoActive? "envio active":"envio"} id="moto" onClick={selectMoto}>
+              <div
+                className={motoActive ? "envio active" : "envio"}
+                id="moto"
+                onClick={selectMoto}
+              >
                 <div className="titleEnv">
                   <GiHandTruck />
                   <div>
@@ -136,7 +150,11 @@ function Checkout() {
                   <h4>$1000</h4>
                 </div>
               </div>
-              <div className={correoActive? "envio active":"envio"} id="correo" onClick={selectCorreo}>
+              <div
+                className={correoActive ? "envio active" : "envio"}
+                id="correo"
+                onClick={selectCorreo}
+              >
                 <div className="titleEnv">
                   <FaTruck />
                   <div>
@@ -154,13 +172,25 @@ function Checkout() {
             <h2>Método de pago</h2>
             <form>
               <label>Nombre y Apellido</label>
-              <input type="name" name="name" onChange={(event) => setBuyerName(event.target.value)} />
+              <input
+                type="name"
+                name="name"
+                onChange={(event) => setBuyerName(event.target.value)}
+              />
               <label>DNI</label>
-              <input type="num" name="dni" value="11 234 567" readOnly/>
+              <input type="num" name="dni" value="11 234 567" readOnly />
               <label>Email</label>
-              <input type="email" name="email" onChange={(event) => setBuyerEmail(event.target.value)} />
+              <input
+                type="email"
+                name="email"
+                onChange={(event) => setBuyerEmail(event.target.value)}
+              />
               <label>Teléfono</label>
-              <input type="tel" name="tel" onChange={(event) => setBuyerPhone(event.target.value)}/>
+              <input
+                type="tel"
+                name="tel"
+                onChange={(event) => setBuyerPhone(event.target.value)}
+              />
               <label>Detalles de tarjeta</label>
               <div className="cardDetails">
                 <input
@@ -204,12 +234,23 @@ function Checkout() {
                   </div>
                 </div>
                 <div className="city">
-                  <div>                  
-                  <label>Ciudad</label>
-                  <input type="text" name="ciudad" value="Lomas de Zamora" readOnly /></div>
                   <div>
-                  <label>Provincia</label>
-                  <input type="text" name="provincia" value="Buenos Aires" readOnly />
+                    <label>Ciudad</label>
+                    <input
+                      type="text"
+                      name="ciudad"
+                      value="Lomas de Zamora"
+                      readOnly
+                    />
+                  </div>
+                  <div>
+                    <label>Provincia</label>
+                    <input
+                      type="text"
+                      name="provincia"
+                      value="Buenos Aires"
+                      readOnly
+                    />
                   </div>
                   <div></div>
                 </div>
@@ -228,12 +269,17 @@ function Checkout() {
                 <h4>Total</h4>
                 <h4 className="totalCost">${envio + totalPrice}</h4>
               </div>
-              {disabled? <button style={{pointerEvents:"none", opacity:'.6'}}>Faltan datos</button> : <button onClick={handleClick}>Realizar Pedido</button>}
+              {disabled ? (
+                <button style={{ pointerEvents: "none", opacity: ".6" }}>
+                  Faltan datos
+                </button>
+              ) : (
+                <button onClick={handleClick}>Realizar Pedido</button>
+              )}
             </div>
           </div>
         </div>
       </div>
-
 
       <Modal
         show={show}
@@ -243,19 +289,29 @@ function Checkout() {
         className="modalCheck"
       >
         <Modal.Header>
-          <Modal.Title><img src={logo} width="80px"/><div className="logoName">DISTRIBUIDORA <br/><span>GALICIA</span></div></Modal.Title>
+          <Modal.Title>
+            <img src={logo} alt="Logo Galicia" width="80px" />
+            <div className="logoName">
+              DISTRIBUIDORA <br />
+              <span>GALICIA</span>
+            </div>
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {loading?<>
-            <PulseLoader color={"rgb(157, 197, 74)"} size={30}/>
-          </>:<div className="checkOrder"> 
-          <FiCheckSquare/>
-          <h2>¡Orden realizada con éxito!</h2>
-          <p>id de la orden : {Id}</p>
-          <Link to="/">
-          <button onClick={back}>Volver al inicio</button>
-          </Link>
-          </div>}
+          {loading ? (
+            <>
+              <PulseLoader color={"rgb(157, 197, 74)"} size={30} />
+            </>
+          ) : (
+            <div className="checkOrder">
+              <FiCheckSquare />
+              <h2>¡Orden realizada con éxito!</h2>
+              <p>id de la orden : {Id}</p>
+              <Link to="/">
+                <button onClick={back}>Volver al inicio</button>
+              </Link>
+            </div>
+          )}
         </Modal.Body>
       </Modal>
     </div>

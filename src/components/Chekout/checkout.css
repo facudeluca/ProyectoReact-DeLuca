@@ -290,6 +290,7 @@ color: rgb(157, 197, 74);
 @media screen and (max-width:500px){
     .cardDetails{
         flex-wrap: wrap;
+        justify-content: flex-end;
     }
     .direccion{
         flex-wrap: wrap;
@@ -300,5 +301,8 @@ color: rgb(157, 197, 74);
        .modalCheck .modal-dialog{
         width: 95% ;
         max-width: 95%;
+    }
+    .city{
+        flex-direction: column;
     }
 }

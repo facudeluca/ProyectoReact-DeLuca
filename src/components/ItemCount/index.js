@@ -1,41 +1,44 @@
 import "./ItemCount.css";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
 
-function ItemCounter({ stock, onAddToCart, onAddShowModal, itemData }) {
+function ItemCounter({ onAddToCart, onAddShowModal, itemData }) {
   const [contador, setContador] = useState(1);
-  const [cantStock, setCantStock] = useState(stock);
-  const {addProduct} = useContext(CartContext);
-  const itemDataCount= {
+  const { addProduct, cart } = useContext(CartContext);
+  const [stock, setStock] = useState(itemData.stock);
+  const itemDataCount = {
     ...itemData,
-    contador
-  }
+    contador,
+    stock
+  };
 
-
-  useEffect(()=>{
-    setCantStock(stock)
-  },[stock])
-
+  
   function agregarItem() {
-    if (cantStock > 1) {
+    if (itemData.stock > 1 && contador < stock) {
       setContador(contador + 1);
-      setCantStock(cantStock - 1);
     }
   }
   function quitarItem() {
     if (contador > 1) {
       setContador(contador - 1);
-      setCantStock(cantStock + 1);
     }
   }
   function addToCart() {
-    if (contador >= 1) {
-      setCantStock(cantStock - contador);
-      setCantStock(cantStock);
+    if (stock >= 1) {
       onAddToCart();
       onAddShowModal();
     }
   }
+  
+
+  useEffect(() => {
+    cart.forEach((e) => {
+      if (e.id === itemData.id) {
+        setStock(e.stock - e.contador);
+      }
+    });
+  }, [cart]);
+
 
   return (
     <div className="itemCounter">
@@ -65,12 +68,16 @@ function ItemCounter({ stock, onAddToCart, onAddShowModal, itemData }) {
       </div>
       <div className="addItem">
         <input
+          style={{
+            pointerEvents: stock == 0 ? "none" : "all",
+            opacity: stock == 0 ? ".5" : "1",
+          }}
           type="button"
-          value="Agregar al carrito"
+          value={stock == 0 ? "No hay más stock" : "Agregar al carrito"}
           id="addItemBtn"
-          onClick={()=>{
+          onClick={() => {
             addToCart();
-            addProduct({...itemDataCount})
+            addProduct({ ...itemDataCount });
           }}
         />
       </div>

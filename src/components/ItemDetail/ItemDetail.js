@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ItemCounter from "../ItemCount";
 import Accordion from "react-bootstrap/Accordion";
 import { Link } from "react-router-dom";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import Modal from "react-bootstrap/Modal";
+import { CartContext } from "../../context/CartContext";
 
 function ItemDetail({ name, img, brand, weight, stock, info, price, id }) {
   const [addedToCart, setAddedToCart] = useState(false);
   const [smShow, setSmShow] = useState(false);
   const itemData = { name, img, price, id, weight, stock };
+  const { cart } = useContext(CartContext);
+  const [cantStock, setCantStock] = useState(stock);
+
 
   const onAddItems = () => {
     setAddedToCart(true);
@@ -17,15 +21,25 @@ function ItemDetail({ name, img, brand, weight, stock, info, price, id }) {
     setSmShow(true);
     setTimeout(() => {
       setSmShow(false);
-    }, 2000);
+    }, 1500);
   };
 
+
+  useEffect(() => {
+    cart.forEach((e) => {
+      if (e.id === itemData.id) {
+        setCantStock(e.stock - e.contador);
+      }
+    });
+  }, [cart]);
+
+  
   return (
     <div className="itemDetail">
       <Link to="/" id="backButton">
         <RiArrowGoBackFill />
       </Link>
-      <img src={img} />
+      <img src={img} alt={name} />
       <div className="item__info">
         <h1>{name}</h1>
         <h5>{brand}</h5>
@@ -35,7 +49,7 @@ function ItemDetail({ name, img, brand, weight, stock, info, price, id }) {
             <h2>{`$ ${price}`}</h2>
             <p>por bolsa de: {weight}</p>
           </div>
-          <h6>En stock: {stock} unidades</h6>
+          <h6>En stock: {cantStock} unidades</h6>
         </div>
         <hr />
         {addedToCart ? (
@@ -49,7 +63,6 @@ function ItemDetail({ name, img, brand, weight, stock, info, price, id }) {
           </div>
         ) : (
           <ItemCounter
-            stock={stock}
             className="counter"
             itemData={itemData}
             onAddToCart={onAddItems}
