@@ -1,0 +1,304 @@
+.checkout{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.checkoutContainer{
+    width: 70%;
+    min-height: 85%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(157, 197, 74);
+    border-radius: 15px;
+}
+.checkoutContainer h2{
+    font-size: 1.5rem;
+}
+.checkoutContainer header{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid rgb(157, 197, 74);
+}
+.checkoutContainer header p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+.contentCheckout{
+    display: flex;
+    width: 100%;
+}
+.orderBody{
+    width: 50%;
+    padding: 2rem;
+}
+.productsContainer{
+    border: 1px solid rgb(157, 197, 74);
+    border-radius: 5px;
+    padding: 1rem;
+    height: 350px;
+    overflow-y: scroll;
+    margin-bottom: 1rem;
+}
+.productsContainer::-webkit-scrollbar{
+    width: 5px;
+}
+.productsContainer::-webkit-scrollbar-track{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.productsContainer::-webkit-scrollbar-thumb{
+background-color: rgb(157, 197, 74);
+border-radius: 15px;
+}
+.productsContainer .product{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.productsContainer h3{
+    font-size: 1.1rem;
+}
+.productsContainer h4{
+    font-size: 1rem;
+    color: gray;
+}
+.productsContainer img{
+    border: 1px solid rgb(157, 197, 74);
+    border-radius: 5px;
+    padding: .5rem;
+}
+.envios h2{
+    margin-bottom: 1rem;
+}
+.envio{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-radius: 5px;
+    background-color: rgb(236, 236, 236);
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    cursor: pointer;
+    justify-content: space-between;
+}
+.active{
+    outline: 1px solid rgb(157, 197, 74);
+    background-color: white;
+    box-shadow: 0px 0px 2px rgb(157, 197, 74);
+}
+.titleEnv{
+    display: flex;
+    align-items: center;
+}
+.envio svg{
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    fill: rgb(157, 197, 74);
+}
+.envio h4{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.envio h4 span{
+    font-weight: 400;
+    font-size: 1rem;
+}
+.envio p{
+    margin: 0;
+}
+.payment{
+    width: 50%;
+    padding: 2rem;
+}
+.payment form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.payment label{
+    margin-top: .5rem;
+}
+.payment input{
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+    padding: .3rem 1rem;
+}
+.payment input:focus{
+    outline: none;
+    border: 1px solid rgb(157, 197, 74);
+}
+.cardDetails{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 1.5rem;
+}
+.cardNum{
+    width: 22rem;
+}
+.cardDate{
+    width: 6rem;
+}
+.cardCVV{
+    width: 4rem;
+}
+.address form{
+   display: flex;
+}
+.address .direccion{
+    display: flex;
+    gap: 1rem;
+}
+.direccion .altura input{
+    width: 100%;
+}
+.direccion .cp input{
+    width: 100%;
+}
+.city{
+    display: flex;
+    gap: 1rem;
+}
+.city input{
+    width: 100%;
+}
+.total{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.total div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.total h4{
+    font-size: 1rem;
+}
+.total button{
+    padding: .5rem 1rem;
+    background-color: rgb(157, 197, 74);
+    border: 2px solid rgb(157, 197, 74);
+    border-radius: 5px;
+    color: white;  
+    transition: .5s ease-in-out;
+}
+.total button:hover{
+    background-color: transparent;
+    color: rgb(157, 197, 74);
+}
+.totalPrice{
+    font-weight: 400;
+}
+.totalEnv{
+    font-weight: 400;
+}
+.totalCost{
+    font-weight: bolder;
+}
+
+
+.modal-backdrop{
+    display: initial;
+}
+.modalCheck .modal-dialog{
+    margin-right: none;
+    max-width: 70%;
+    max-height: 90vh;
+    height: 100%;
+}
+.modalCheck .modal-header .modal-title{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+}
+.modalCheck .modal-body{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modalCheck .checkOrder{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80%;
+}
+.modalCheck .checkOrder svg{
+font-size: 10rem;
+color: rgb(157, 197, 74);
+}
+
+.modalCheck .checkOrder button{
+    padding: 1rem 2rem;
+    background-color: rgb(157, 197, 74);
+    color: white;
+    border-radius: 15px;
+    border: none;
+    outline: 2px solid rgb(157, 197, 74);
+    transition:.5s ease-in-out;
+}
+.modalCheck .checkOrder button:hover{
+    background-color: transparent;
+    color: rgb(157, 197, 74);
+}
+
+@media screen and (max-width:1300px) {
+    .checkoutContainer{
+        width: 90%;
+    }
+}
+@media screen and (max-width:991px) {
+    .checkoutContainer{
+        width: 70%;
+    }
+    .contentCheckout{
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+    .orderBody{
+        width: 100%;
+    }
+    .payment{
+        width: 100%;
+    }
+}
+@media screen and (max-width:750px) {
+    .checkoutContainer{
+        width: 90%;
+    }
+
+}
+@media screen and (max-width:700px){
+    .modalCheck .modal-dialog{
+        width: 90% ;
+        max-width: 90%;
+    }
+}
+@media screen and (max-width:500px){
+    .cardDetails{
+        flex-wrap: wrap;
+    }
+    .direccion{
+        flex-wrap: wrap;
+       }
+       .direccion input{
+        width: 100%;
+       }
+       .modalCheck .modal-dialog{
+        width: 95% ;
+        max-width: 95%;
+    }
+}

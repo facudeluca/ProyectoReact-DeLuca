@@ -68,6 +68,7 @@ function ItemDetail({ name, img, brand, weight, stock, info, price, id }) {
         show={smShow}
         onHide={() => setSmShow(false)}
         aria-labelledby="example-modal-sizes-title-sm"
+        className="modalAdd"
       >
         <Modal.Body>
           Has agregado <span>{name}</span> a tu carrito

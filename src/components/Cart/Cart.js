@@ -2,12 +2,18 @@ import React, { useContext } from "react";
 import "./cart.css";
 import { CartContext } from "../../context/CartContext";
 import { Col, Container, Row } from "react-bootstrap";
-import { FaProductHunt, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { collection, doc, setDoc} from "firebase/firestore";
+import {DB} from "../../Data/DataFirebase.js"
 
 const Cart = () => {
   const { cart, removeFromCart, removeAll, totalPrice } = useContext(CartContext);
+
+
+
+
 
 
   return (
@@ -79,7 +85,7 @@ const Cart = () => {
             <Button className="clearCart" onClick={removeAll}>
               vaciar carrito
             </Button>
-            <Button className="finalizar ">
+            <Button as={Link} to="/checkout" className="finalizar ">
               FINALIZAR COMPRA
             </Button>
           </div>

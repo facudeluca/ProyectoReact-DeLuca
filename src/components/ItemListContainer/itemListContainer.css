@@ -168,6 +168,14 @@ font-size: 1.2rem;
     border: 2px solid rgb(157, 197, 74);
 }
 
+.loading{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 150px;
+}
+
 @media screen and (max-width:991px) {
     .order__prod .viewRow__prod{
         display: none;
