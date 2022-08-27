@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import CartContextProvider from "./context/CartContext";
 import Checkout from "./components/Chekout/Checkout";
+import Notfound from "./components/NotFound/Notfound";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/detail/:prodId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/*" element={<Notfound/>}/>
           </Routes>
         </CartContextProvider>
       </BrowserRouter>
