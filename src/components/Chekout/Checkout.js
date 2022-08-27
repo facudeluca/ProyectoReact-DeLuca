@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { DB } from "../../Data/DataFirebase.js";
 import { CartContext } from "../../context/CartContext.js";
 import logo from "../../logo.png";
@@ -23,10 +23,9 @@ function Checkout() {
   const [buyerEmail, setBuyerEmail]=useState('')
   const [loading, setLoading]=useState(false)
   const [show, setShow] = useState(false);
-  const [id, setId]=useState('')
+  const [Id, setId]=useState('')
 
   const handleClose = () => setShow(false);
-
 
   function selectMoto(){
     setEnvio(1000)
@@ -62,6 +61,7 @@ function Checkout() {
     },
     items: itemsBuyed,
     totalProductos:totalPrice,
+    fecha:serverTimestamp(),
     envio:envio,
     total: totalPrice + envio,
   };
@@ -76,9 +76,14 @@ function Checkout() {
     orderInFirestore()
       .then((res) => {
         setLoading(false)
+        cart.forEach(async (item)=>{
+          const itemRef = doc(DB, 'ProductList', item.id)
+          await updateDoc(itemRef,{
+            stock: increment(-item.contador)
+          })
+        })
         removeAll()
         setId(res.id)
-        ;
       })
       .catch((err) => console.log(err))
       .finally(setLoading(true));
@@ -246,7 +251,7 @@ function Checkout() {
           </>:<div className="checkOrder"> 
           <FiCheckSquare/>
           <h2>¡Orden realizada con éxito!</h2>
-          <p>id de la orden : {id}</p>
+          <p>id de la orden : {Id}</p>
           <Link to="/">
           <button onClick={back}>Volver al inicio</button>
           </Link>

@@ -5,8 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { collection, doc, setDoc} from "firebase/firestore";
-import {DB} from "../../Data/DataFirebase.js"
+
 
 const Cart = () => {
   const { cart, removeFromCart, removeAll, totalPrice } = useContext(CartContext);
