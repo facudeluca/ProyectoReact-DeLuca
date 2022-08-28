@@ -96,7 +96,7 @@ function Checkout() {
         cart.forEach(async (item) => {
           const itemRef = doc(DB, "ProductList", item.id);
           await updateDoc(itemRef, {
-            stock: increment(JSON.stringify(-item.contador)),
+            stock: increment(-item.contador),
           });
         });
         removeAll();
