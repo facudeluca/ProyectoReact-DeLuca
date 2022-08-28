@@ -28,6 +28,8 @@ function Checkout() {
   const [buyerName, setBuyerName] = useState("");
   const [buyerPhone, setBuyerPhone] = useState("");
   const [buyerEmail, setBuyerEmail] = useState("");
+  const [email1, setEmail1]=useState('')
+  const [email2, setEmail2]=useState('')
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
   const [Id, setId] = useState("");
@@ -49,11 +51,18 @@ function Checkout() {
 
   //>>>>>>>>> CREACIÓN DE ORDEN <<<<<<<
 
+  useEffect(()=>{
+      setBuyerEmail(email1) 
+  },[email1])
+
+
   useEffect(() => {
-    if ((buyerName !== "", buyerEmail !== "", buyerPhone !== "" && envio > 0)) {
+    if ((buyerName !== "" , buyerPhone !== "" && email1===email2 && envio > 0 && buyerEmail!=='')) {
       setDisabled(false);
+    }else{
+      setDisabled(true)
     }
-  }, [envio, buyerName, buyerPhone, buyerEmail]);
+  }, [envio, buyerName, buyerPhone, email1, email2, buyerEmail]);
 
   const itemsBuyed = cart.map((item) => ({
     id: item.id,
@@ -176,14 +185,20 @@ function Checkout() {
                 type="name"
                 name="name"
                 onChange={(event) => setBuyerName(event.target.value)}
-              />
-              <label>DNI</label>
-              <input type="num" name="dni" value="11 234 567" readOnly />
+              />              
               <label>Email</label>
               <input
                 type="email"
                 name="email"
-                onChange={(event) => setBuyerEmail(event.target.value)}
+                onChange={(event) => setEmail1(event.target.value)}
+                style={{border: email1!=email2? '1px solid red':''}}
+                />
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                onChange={(event) => setEmail2(event.target.value)}
+                style={{border: email1!=email2? '1px solid red':''}}
               />
               <label>Teléfono</label>
               <input
